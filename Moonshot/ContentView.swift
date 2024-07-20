@@ -15,30 +15,23 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            if showListView {
-                MissionListView(missions: missions, astronauts: astronauts)
-                    .navigationTitle("Moonshot")
-                    .background(.darkBackground)
-                    .preferredColorScheme(.dark)
-                    .toolbar {
-                        Button {
-                            showListView.toggle()
-                        } label: {
-                            Image(systemName: showListView ? "square.grid.2x2" : "list.dash")
-                        }
-                    }
-            } else {
-                MissionGridView(missions: missions, astronauts: astronauts)
-                    .navigationTitle("Moonshot")
-                    .background(.darkBackground)
-                    .preferredColorScheme(.dark)
-                    .toolbar {
-                        Button {
-                            showListView.toggle()
-                        } label: {
-                            Image(systemName: showListView ? "square.grid.2x2" : "list.dash")
-                        }
-                    }
+            Group {
+                if showListView {
+                    MissionListView(missions: missions, astronauts: astronauts)
+                       
+                } else {
+                    MissionGridView(missions: missions, astronauts: astronauts)
+                }
+            }
+            .navigationTitle("Moonshot")
+            .background(.darkBackground)
+            .preferredColorScheme(.dark)
+            .toolbar {
+                Button {
+                    showListView.toggle()
+                } label: {
+                    Image(systemName: showListView ? "square.grid.2x2" : "list.dash")
+                }
             }
         }
     }
