@@ -13,9 +13,7 @@ struct MissionListView: View {
     
     var body: some View {
         List(missions) { mission in
-            NavigationLink {
-                MissionView(mission: mission, astronauts: astronauts)
-            } label: {
+            NavigationLink(value: mission) {
                 HStack{
                     VStack {
                         Text(mission.displayName)
@@ -28,6 +26,9 @@ struct MissionListView: View {
                 }
             }
             .listRowBackground(Color.darkBackground)
+        }
+        .navigationDestination(for: Mission.self) { selection in
+            MissionView(mission: selection, astronauts: astronauts)
         }
         .listStyle(.plain)
         .background(.darkBackground)

@@ -18,7 +18,6 @@ struct ContentView: View {
             Group {
                 if showListView {
                     MissionListView(missions: missions, astronauts: astronauts)
-                       
                 } else {
                     MissionGridView(missions: missions, astronauts: astronauts)
                 }
