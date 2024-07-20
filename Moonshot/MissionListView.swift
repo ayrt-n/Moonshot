@@ -27,8 +27,9 @@ struct MissionListView: View {
                     }
                 }
             }
-            .listRowBackground(Color.lightBackground)
+            .listRowBackground(Color.darkBackground)
         }
+        .listStyle(.plain)
         .background(.darkBackground)
         .scrollContentBackground(.hidden)
     }
